@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, Check, Eye, Shield, Zap, TrendingUp, Star, Play, Globe, LayoutDashboard } from 'lucide-react';
+import { ArrowRight, Check, Eye, Shield, Zap, TrendingUp, Star, Play, Globe, LayoutDashboard, LogOut } from 'lucide-react';
 import logoImage from '../../assets/logo.png';
 
 interface LandingPageProps {
@@ -45,12 +45,12 @@ export function LandingPage({ isAuthenticated, userRole }: LandingPageProps) {
   return (
     <div className="min-h-screen bg-[#f4f5f2] p-4 lg:p-6 space-y-6">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border border-gray-100/50 rounded-[32px] px-8 py-5 flex items-center justify-between shadow-sm">
-        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 bg-[#f4f5f2] rounded-xl flex items-center justify-center border border-gray-100 overflow-hidden">
-            <img src={logoImage} alt="Howsee" className="w-full h-full object-contain p-1.5" />
+      <nav className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border border-gray-100/50 rounded-[32px] px-4 sm:px-8 py-4 sm:py-5 flex items-center justify-between shadow-sm mx-1 sm:mx-0">
+        <div className="flex items-center gap-2 sm:gap-4">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#f4f5f2] rounded-lg sm:rounded-xl flex items-center justify-center border border-gray-100 overflow-hidden shrink-0">
+            <img src={logoImage} alt="Howsee" className="w-full h-full object-contain p-1 sm:p-1.5" />
           </div>
-          <span className="font-bold text-2xl tracking-tight text-gray-900">Howsee</span>
+          <span className="font-bold text-xl sm:text-2xl tracking-tight text-gray-900 truncate">Howsee</span>
         </div>
         
         <div className="hidden md:flex items-center gap-10">
@@ -58,27 +58,38 @@ export function LandingPage({ isAuthenticated, userRole }: LandingPageProps) {
           <a href="#pricing" className="text-[15px] font-bold text-gray-500 hover:text-[#576856] transition-colors">Pricing</a>
           <a href="#testimonials" className="text-[15px] font-bold text-gray-500 hover:text-[#576856] transition-colors">Testimonials</a>
         </div>
-
-        <div className="flex items-center gap-4">
+ 
+        <div className="flex items-center gap-1.5 sm:gap-4">
           {isAuthenticated ? (
-            <button
-              onClick={() => navigate(dashboardPath)}
-              className="px-8 py-3.5 bg-[#576856] text-white text-[15px] font-bold rounded-2xl hover:scale-105 transition-all shadow-lg shadow-[#576856]/20 flex items-center gap-2"
-            >
-              <LayoutDashboard className="w-4 h-4" />
-              Go to Dashboard
-            </button>
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <button
+                onClick={() => navigate(dashboardPath)}
+                className="px-3 py-2 sm:px-8 sm:py-3.5 bg-[#576856] text-white text-[12px] sm:text-[15px] font-bold rounded-xl sm:rounded-2xl hover:scale-105 transition-all shadow-lg shadow-[#576856]/20 flex items-center gap-1.5 sm:gap-2"
+              >
+                <LayoutDashboard className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Go to Dashboard</span>
+                <span className="sm:hidden">Dash</span>
+              </button>
+              <button
+                onClick={() => { localStorage.removeItem('howsee_auth'); localStorage.removeItem('howsee_role'); window.location.reload(); }}
+                className="p-2 sm:px-6 sm:py-3.5 bg-red-50 text-red-500 text-[12px] sm:text-[15px] font-bold rounded-xl sm:rounded-2xl hover:bg-red-100 transition-all flex items-center gap-1.5 sm:gap-2 border border-red-100"
+                title="Log Out"
+              >
+                <LogOut className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span className="hidden md:inline">Log Out</span>
+              </button>
+            </div>
           ) : (
             <>
               <button
                 onClick={() => navigate('/signin')}
-                className="px-6 py-2.5 text-[15px] font-bold text-gray-700 hover:text-[#576856] transition-colors"
+                className="px-2.5 py-2 sm:px-6 sm:py-2.5 text-[12px] sm:text-[15px] font-bold text-gray-700 hover:text-[#576856] transition-colors"
               >
                 Sign In
               </button>
               <button
                 onClick={() => navigate('/signup')}
-                className="px-8 py-3.5 bg-[#576856] text-white text-[15px] font-bold rounded-2xl hover:scale-105 transition-all shadow-lg shadow-[#576856]/20"
+                className="px-3.5 py-2 sm:px-8 sm:py-3.5 bg-[#576856] text-white text-[12px] sm:text-[15px] font-bold rounded-xl sm:rounded-2xl hover:scale-105 transition-all shadow-lg shadow-[#576856]/20"
               >
                 Get Started
               </button>
@@ -89,71 +100,71 @@ export function LandingPage({ isAuthenticated, userRole }: LandingPageProps) {
 
       {/* Hero Section */}
       <section className="bg-white rounded-[48px] border border-gray-100 shadow-sm overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-[#f4f5f2]/50 -skew-x-12 translate-x-1/2" />
-        <div className="max-w-7xl mx-auto px-12 py-24 lg:py-32 relative">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-10">
-              <div className="inline-flex items-center gap-2 px-6 py-2 bg-[#f4f5f2] text-[#576856] rounded-full text-sm font-bold border border-gray-100">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-[#f4f5f2]/50 -skew-x-12 translate-x-1/2 hidden lg:block" />
+        <div className="max-w-7xl mx-auto px-6 sm:px-12 py-16 lg:py-32 relative">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="space-y-8 lg:space-y-10 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-6 py-2 bg-[#f4f5f2] text-[#576856] rounded-full text-xs sm:text-sm font-bold border border-gray-100 mx-auto lg:mx-0">
                 <span className="animate-pulse">●</span>
                 REAL ESTATE REVOLUTION
               </div>
-              <h1 className="text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.2] lg:leading-[1.1] tracking-tight">
                 Discover Your <span className="text-[#576856]">Dream Space</span> with 3D Precision.
               </h1>
-              <p className="text-xl text-gray-500 leading-relaxed max-w-xl font-medium">
+              <p className="text-lg sm:text-xl text-gray-500 leading-relaxed max-w-xl font-medium mx-auto lg:mx-0">
                 Experience properties like never before. Our immersive 3D tours bring listings to life, making buying and selling 3x faster and more secure.
               </p>
-              <div className="flex flex-wrap gap-6 pt-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-4">
                 <button
                   onClick={() => navigate(isAuthenticated ? dashboardPath : '/signup')}
-                  className="px-10 py-5 bg-[#576856] text-white rounded-[24px] hover:scale-105 transition-all flex items-center gap-3 font-bold shadow-xl shadow-[#576856]/30 text-lg"
+                  className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-[#576856] text-white rounded-[24px] hover:scale-105 transition-all flex items-center justify-center gap-3 font-bold shadow-xl shadow-[#576856]/30 text-[16px] sm:text-lg"
                 >
                   {isAuthenticated ? 'Go to Dashboard' : 'Start Exploration'}
-                  <ArrowRight className="w-6 h-6" />
+                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
                 <button 
                   onClick={() => window.open('https://discover.matterport.com/space/gzbxoZ1DVDd', '_blank')}
-                  className="px-10 py-5 bg-[#f4f5f2] text-gray-700 rounded-[24px] hover:bg-gray-100 transition-all flex items-center gap-3 font-bold border border-gray-100 text-lg"
+                  className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-[#f4f5f2] text-gray-700 rounded-[24px] hover:bg-gray-100 transition-all flex items-center justify-center gap-3 font-bold border border-gray-100 text-[16px] sm:text-lg"
                 >
-                  <Play className="w-6 h-6 fill-current" />
+                  <Play className="w-5 h-5 sm:w-6 sm:h-6 fill-current" />
                   View Showcase
                 </button>
               </div>
-              <div className="flex items-center gap-8 pt-10 border-t border-gray-100">
-                <div className="flex -space-x-4">
+              <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 pt-10 border-t border-gray-100 justify-center lg:justify-start">
+                <div className="flex -space-x-3 sm:-space-x-4">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-12 h-12 rounded-full bg-gray-100 border-4 border-white overflow-hidden shadow-sm">
+                    <div key={i} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-100 border-2 sm:border-4 border-white overflow-hidden shadow-sm">
                       <img src={`https://i.pravatar.cc/150?u=${i}`} alt="user" className="w-full h-full object-cover" />
                     </div>
                   ))}
                 </div>
-                <div>
-                  <div className="flex gap-1 mb-1">
+                <div className="text-center sm:text-left">
+                  <div className="flex justify-center sm:justify-start gap-1 mb-1">
                     {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <p className="text-sm font-bold text-gray-500">Trusted by over 10k+ property owners</p>
+                  <p className="text-xs sm:text-sm font-bold text-gray-500">Trusted by over 10k+ property owners</p>
                 </div>
               </div>
             </div>
 
-            <div className="relative group">
+            <div className="relative group mt-8 lg:mt-0">
               <div className="absolute -inset-4 bg-[#576856]/5 rounded-[60px] blur-3xl group-hover:bg-[#576856]/10 transition-all duration-500" />
-              <div className="relative bg-[#f4f5f2] rounded-[56px] border-8 border-white shadow-2xl overflow-hidden aspect-[4/3]">
+              <div className="relative bg-[#f4f5f2] rounded-[40px] sm:rounded-[56px] border-4 sm:border-8 border-white shadow-2xl overflow-hidden aspect-[4/3]">
                 <img 
                   src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=900&fit=crop" 
                   alt="Property"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-8 left-8 right-8 bg-white/80 backdrop-blur-xl p-6 rounded-[32px] border border-white/50 shadow-xl">
-                  <div className="flex items-center gap-5">
-                    <div className="w-14 h-14 bg-[#576856] rounded-2xl flex items-center justify-center shadow-lg shadow-[#576856]/20">
-                      <TrendingUp className="w-8 h-8 text-white" />
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-8 bg-white/80 backdrop-blur-xl p-4 sm:p-6 rounded-[24px] sm:rounded-[32px] border border-white/50 shadow-xl">
+                  <div className="flex items-center gap-4 sm:gap-5">
+                    <div className="w-10 h-10 sm:w-14 sm:h-14 bg-[#576856] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg shadow-[#576856]/20">
+                      <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-900">+127%</p>
-                      <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">Growth in Engagement</p>
+                      <p className="text-lg sm:text-2xl font-bold text-gray-900">+127%</p>
+                      <p className="text-[9px] sm:text-xs font-bold text-gray-500 uppercase tracking-widest">Growth in Engagement</p>
                     </div>
                   </div>
                 </div>

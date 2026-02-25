@@ -32,8 +32,8 @@ export function PropertyModeration() {
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
         {properties.map((prop) => (
           <div key={prop.id} className="bg-white rounded-[40px] p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 group">
-            <div className="flex gap-8">
-              <div className="w-40 h-40 bg-[#f4f5f2] rounded-3xl overflow-hidden relative border border-gray-100 shrink-0">
+            <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+              <div className="w-full md:w-40 h-48 md:h-40 bg-[#f4f5f2] rounded-3xl overflow-hidden relative border border-gray-100 shrink-0">
                  <img src={`https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400&h=400&fit=crop&q=80`} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                  <div className="absolute top-3 left-3">
                    <span className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest ${
@@ -52,26 +52,29 @@ export function PropertyModeration() {
                     <h3 className="text-xl font-black text-gray-900 group-hover:text-[#576856] transition-colors line-clamp-1">{prop.title}</h3>
                     <p className="text-sm font-bold text-gray-400">by <span className="text-[#576856] underline cursor-pointer">{prop.seller}</span></p>
                   </div>
-                  <button className="p-2 bg-[#f4f5f2] rounded-xl text-gray-400 hover:text-gray-900 transition-colors">
+                  <button className="p-2 bg-[#f4f5f2] rounded-xl text-gray-400 hover:text-gray-900 transition-colors shrink-0">
                     <ArrowUpRight className="w-5 h-5" />
                   </button>
                 </div>
 
-                <div className="flex items-end justify-between">
-                  <div>
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                   <div>
                     <p className="text-2xl font-black text-gray-900">{prop.price}</p>
                     <p className="text-[10px] font-medium text-gray-400 uppercase tracking-widest mt-1">Listed {prop.listed}</p>
                   </div>
                   
                   <div className="flex gap-2">
-                    <button className="w-10 h-10 flex items-center justify-center bg-green-50 text-green-600 rounded-xl hover:bg-green-100 transition-all border border-green-100 shadow-sm" title="Approve">
+                    <button className="flex-1 sm:flex-none w-full sm:w-10 h-10 flex items-center justify-center bg-green-50 text-green-600 rounded-xl hover:bg-green-100 transition-all border border-green-100 shadow-sm" title="Approve">
                        <CheckCircle2 className="w-5 h-5" />
+                       <span className="ml-2 sm:hidden font-bold text-xs">Approve</span>
                     </button>
-                    <button className="w-10 h-10 flex items-center justify-center bg-red-50 text-red-600 rounded-xl hover:bg-red-100 transition-all border border-red-100 shadow-sm" title="Reject">
+                    <button className="flex-1 sm:flex-none w-full sm:w-10 h-10 flex items-center justify-center bg-red-50 text-red-600 rounded-xl hover:bg-red-100 transition-all border border-red-100 shadow-sm" title="Reject">
                        <XCircle className="w-5 h-5" />
+                       <span className="ml-2 sm:hidden font-bold text-xs">Reject</span>
                     </button>
-                    <button className="w-10 h-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-gray-100 transition-all border border-gray-100 shadow-sm" title="View Details">
+                    <button className="flex-1 sm:flex-none w-full sm:w-10 h-10 flex items-center justify-center bg-gray-50 text-gray-400 rounded-xl hover:bg-gray-100 transition-all border border-gray-100 shadow-sm" title="View Details">
                        <Eye className="w-5 h-5" />
+                       <span className="ml-2 sm:hidden font-bold text-xs">View</span>
                     </button>
                   </div>
                 </div>

@@ -42,8 +42,8 @@ export function AdminSettings() {
           <h1 className="text-4xl font-black text-gray-900 tracking-tight">Platform Settings</h1>
           <p className="text-gray-500 font-medium mt-2">Global configuration and administrative preferences.</p>
         </div>
-        <button className="flex items-center gap-2 px-8 py-4 bg-[#576856] text-white rounded-2xl font-bold shadow-xl shadow-[#576856]/20 hover:bg-[#4a5849] transition-all whitespace-nowrap">
-          <Save className="w-5 h-5" />
+        <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-[#576856] text-white rounded-xl sm:rounded-2xl font-bold shadow-xl shadow-[#576856]/20 hover:bg-[#4a5849] transition-all whitespace-nowrap text-sm sm:text-base">
+          <Save className="w-4 h-4 sm:w-5 sm:h-5" />
           Save Changes
         </button>
       </div>

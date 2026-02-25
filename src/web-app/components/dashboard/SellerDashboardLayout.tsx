@@ -70,22 +70,22 @@ export function SellerDashboardLayout({ children }: SellerDashboardLayoutProps) 
             })}
           </nav>
 
-          <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between gap-2">
-            <div className="flex items-center gap-3 px-3 py-2 bg-[#f4f5f2] rounded-2xl border border-gray-100 flex-1 min-w-0">
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center border border-gray-100 shadow-sm shrink-0">
-                <span className="text-[#576856] font-bold text-xs">JD</span>
+          <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between gap-1.5 sm:gap-2">
+            <div className="flex items-center gap-2 sm:gap-3 px-2 py-1.5 sm:px-3 sm:py-2 bg-[#f4f5f2] rounded-2xl border border-gray-100 flex-1 min-w-0">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white flex items-center justify-center border border-gray-100 shadow-sm shrink-0">
+                <span className="text-[#576856] font-bold text-[10px] sm:text-xs">JD</span>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-bold text-[13px] text-gray-900 truncate">John Doe</p>
-                <p className="text-[9px] font-bold text-[#576856] tracking-tight truncate lowercase opacity-60">john@example.com</p>
+                <p className="font-bold text-[11px] sm:text-[13px] text-gray-900 truncate">John Doe</p>
+                <p className="text-[8px] sm:text-[9px] font-bold text-[#576856] tracking-tight truncate lowercase opacity-60">john@example.com</p>
               </div>
             </div>
             <button 
               onClick={() => { localStorage.removeItem('howsee_auth'); localStorage.removeItem('howsee_role'); window.location.href = '/signin'; }}
-              className="w-10 h-10 flex items-center justify-center rounded-xl text-red-500 hover:bg-red-50 transition-all border border-transparent hover:border-red-100 shrink-0 shadow-sm"
+              className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl text-red-500 hover:bg-red-50 transition-all border border-transparent hover:border-red-100 shrink-0 shadow-sm"
               title="Sign Out"
             >
-              <LogOut className="w-5 h-5" />
+              <LogOut className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
           

@@ -34,8 +34,8 @@ export function SignUpPage({ onSignUp, isAuthenticated, userRole }: SignUpPagePr
   ];
 
   return (
-    <div className="min-h-screen bg-[#f4f5f2] p-4 lg:p-6 flex items-center justify-center">
-      <div className="w-full max-w-[1200px] bg-white rounded-[48px] border border-gray-100 shadow-sm overflow-hidden flex min-h-[800px]">
+    <div className="min-h-screen bg-[#f4f5f2] p-2 sm:p-6 flex items-center justify-center">
+      <div className="w-full max-w-[1200px] bg-white rounded-3xl sm:rounded-[48px] border border-gray-100 shadow-sm overflow-hidden flex min-h-[600px] sm:min-h-[800px]">
         {/* Left Side: Visual */}
         <div className="hidden lg:block w-1/2 bg-[#576856] relative overflow-hidden p-16">
           <div className="absolute top-0 right-0 w-full h-full opacity-10">
@@ -47,10 +47,10 @@ export function SignUpPage({ onSignUp, isAuthenticated, userRole }: SignUpPagePr
               <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20 p-2">
                 <img src={logoImage} alt="Howsee" className="w-full h-full object-contain brightness-0 invert" />
               </div>
-              <span className="font-bold text-2xl tracking-tight">Howsee</span>
+              <span className="font-bold text-2xl tracking-tight text-white">Howsee</span>
             </div>
             <div className="space-y-6">
-              <h2 className="text-5xl font-bold leading-tight">Join the next generation of property sales.</h2>
+              <h2 className="text-5xl font-black leading-tight text-white">Join the next generation of property sales.</h2>
               <p className="text-white/70 text-lg font-medium">Create your account and start using immersive technology to showcase your properties.</p>
             </div>
             <div className="flex items-center gap-4 text-sm font-bold uppercase tracking-widest text-white/50">
@@ -62,12 +62,12 @@ export function SignUpPage({ onSignUp, isAuthenticated, userRole }: SignUpPagePr
         </div>
 
         {/* Right Side: Form */}
-        <div className="w-full lg:w-1/2 p-8 lg:p-16 flex flex-col justify-center overflow-auto scrollbar-hide">
+        <div className="w-full lg:w-1/2 p-6 sm:p-10 lg:p-16 flex flex-col justify-center overflow-auto scrollbar-hide">
           <div className="max-w-md mx-auto w-full space-y-8 py-8">
              {isAuthenticated ? (
-               <div className="text-center space-y-8 animate-in fade-in zoom-in-95 duration-500">
-                 <div className="w-24 h-24 bg-[#576856] rounded-[32px] flex items-center justify-center mx-auto shadow-xl shadow-[#576856]/20 mb-8">
-                   <Shield className="w-12 h-12 text-white" />
+               <div className="text-center space-y-6 sm:space-y-8 animate-in fade-in zoom-in-95 duration-500">
+                 <div className="w-20 h-20 sm:w-24 sm:h-24 bg-[#576856] rounded-2xl sm:rounded-[32px] flex items-center justify-center mx-auto shadow-xl shadow-[#576856]/20 mb-4 sm:mb-8">
+                   <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
                  </div>
                  <div>
                    <h1 className="text-4xl font-bold text-gray-900 mb-4">Account Ready</h1>
