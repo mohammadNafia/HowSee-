@@ -23,53 +23,52 @@ export function HomeScreen({ onNavigateToProperties, onNavigateToProfile, onNavi
         {/* Top Navigation Bar */}
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-8">
-            <div className="w-16 h-16 flex items-center justify-center overflow-hidden">
+            <div className="w-16 h-16 flex items-center justify-center overflow-hidden bg-white rounded-2xl border border-gray-100 p-2">
                <img src={logo} alt="Howsee Logo" className="w-full h-full object-contain" />
             </div>
-            <div>
+            <div className="hidden sm:block">
               <h1 className="text-[32px] font-bold text-gray-900 leading-tight">Howsee</h1>
-              <p className="text-gray-500 text-base font-medium">Discover curated spaces for your next chapter</p>
             </div>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 sm:gap-6">
             {isAdmin && (
               <button 
                 onClick={onNavigateToAdmin}
-                className="bg-[#576856] text-white px-8 h-14 rounded-2xl flex items-center justify-center gap-3 shadow-xl hover:bg-[#4a5849] transition-all transform hover:translate-y-[-2px] active:translate-y-0"
+                className="bg-[#576856] text-white px-4 sm:px-8 h-12 sm:h-14 rounded-2xl flex items-center justify-center gap-2 sm:gap-3 shadow-xl hover:bg-[#4a5849] transition-all transform hover:translate-y-[-2px] active:translate-y-0"
               >
-                <Shield className="w-5 h-5" />
-                <span className="text-[16px] font-bold">Admin Portal</span>
+                <Shield className="w-4 h-4 sm:w-5 h-5" />
+                <span className="text-xs sm:text-[16px] font-bold whitespace-nowrap">Admin</span>
               </button>
             )}
             {isConstructor && (
               <button 
                 onClick={onNavigateToConstructor}
-                className="bg-[#576856] text-white px-8 h-14 rounded-2xl flex items-center justify-center gap-3 shadow-xl hover:bg-[#4a5849] transition-all transform hover:translate-y-[-2px] active:translate-y-0"
+                className="bg-[#576856] text-white px-4 sm:px-8 h-12 sm:h-14 rounded-2xl flex items-center justify-center gap-2 sm:gap-3 shadow-xl hover:bg-[#4a5849] transition-all transform hover:translate-y-[-2px] active:translate-y-0"
               >
-                <Building2 className="w-5 h-5" />
-                <span className="text-[16px] font-bold">Constructor Dashboard</span>
+                <Building2 className="w-4 h-4 sm:w-5 h-5" />
+                <span className="text-xs sm:text-[16px] font-bold whitespace-nowrap">Dashboard</span>
               </button>
             )}
-            <div className="flex items-center gap-4 bg-white p-2 rounded-2xl shadow-sm border border-gray-100">
-              <button className="w-12 h-12 flex items-center justify-center hover:bg-gray-50 rounded-xl transition-colors relative">
-                <Bell className="w-6 h-6 text-gray-600" />
-                <span className="absolute top-3 right-3 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+            <div className="flex items-center gap-2 sm:gap-4 bg-white p-1.5 sm:p-2 rounded-2xl shadow-sm border border-gray-100">
+              <button className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center hover:bg-gray-50 rounded-xl transition-colors relative shrink-0">
+                <Bell className="w-5 h-5 sm:w-6 h-6 text-gray-600" />
+                <span className="absolute top-2 sm:top-3 right-2 sm:right-3 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
               </button>
-              <div className="w-px h-8 bg-gray-100"></div>
+              <div className="w-px h-6 sm:h-8 bg-gray-100"></div>
               <button 
                 onClick={onNavigateToProfile}
-                className="flex items-center gap-3 pl-2 pr-4 hover:bg-gray-50 rounded-xl transition-colors group"
+                className="flex items-center gap-2 sm:gap-3 pl-1 sm:pl-2 pr-2 sm:pr-4 hover:bg-gray-50 rounded-xl transition-colors group overflow-hidden"
               >
-                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-transparent group-hover:border-[#576856]/20 transition-all">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-transparent group-hover:border-[#576856]/20 transition-all shrink-0">
                   <img 
                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" 
                     alt="User"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="text-left">
-                  <span className="block text-sm font-bold text-gray-900">John Anderson</span>
-                  <span className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">Premium Member</span>
+                <div className="text-left hidden sm:block">
+                  <span className="block text-sm font-bold text-gray-900 truncate">John Anderson</span>
+                  <span className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest truncate">Premium</span>
                 </div>
               </button>
             </div>
@@ -79,30 +78,32 @@ export function HomeScreen({ onNavigateToProperties, onNavigateToProfile, onNavi
         {/* Search Bar - No Categories */}
         <div className="flex flex-col gap-10 mb-12">
           <div className="max-w-3xl w-full mx-auto">
-            <div className="bg-white rounded-[32px] p-2 pr-3 flex items-center gap-4 shadow-xl shadow-gray-200/50 border border-gray-100 group focus-within:ring-4 focus-within:ring-[#576856]/5 transition-all">
-              <div className="pl-6 flex items-center gap-4 flex-1">
-                <Search className="w-6 h-6 text-gray-400 group-focus-within:text-[#576856] transition-colors" />
+            <div className="bg-white rounded-[24px] sm:rounded-[32px] p-2 sm:pr-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4 shadow-xl shadow-gray-200/50 border border-gray-100 group focus-within:ring-4 focus-within:ring-[#576856]/5 transition-all">
+              <div className="pl-4 sm:pl-6 flex items-center gap-4 flex-1">
+                <Search className="w-5 h-5 sm:w-6 h-6 text-gray-400 group-focus-within:text-[#576856] transition-colors" />
                 <input 
                   type="text" 
                   id="main-search-input"
-                  placeholder="Search by location, neighborhood, or style..."
-                  className="w-full bg-transparent outline-none text-[17px] text-gray-900 placeholder:text-gray-300 py-4 font-medium"
+                  placeholder="Search location..."
+                  className="w-full bg-transparent outline-none text-[15px] sm:text-[17px] text-gray-900 placeholder:text-gray-300 py-3 sm:py-4 font-medium"
                 />
               </div>
-              <div className="w-px h-8 bg-gray-100"></div>
-              <button 
-                onClick={() => setIsFilterOpen(true)}
-                className="px-4 flex items-center gap-2 cursor-pointer hover:bg-gray-50 py-2 rounded-xl transition-colors border-none bg-transparent"
-              >
-                <MapPin className="w-5 h-5 text-gray-400" />
-                <span className="text-sm font-bold text-gray-500">Filters</span>
-              </button>
-              <button 
-                onClick={onNavigateToProperties}
-                className="bg-[#576856] text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-[#576856]/20 hover:bg-[#4a5849] transition-all"
-              >
-                Search Now
-              </button>
+              <div className="hidden sm:block w-px h-8 bg-gray-100"></div>
+              <div className="flex items-center px-2 sm:px-0 gap-2">
+                <button 
+                  onClick={() => setIsFilterOpen(true)}
+                  className="flex-1 sm:flex-none px-4 flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-50 py-3 sm:py-2 rounded-xl transition-colors border border-gray-100 sm:border-none bg-transparent"
+                >
+                  <MapPin className="w-5 h-5 text-gray-400" />
+                  <span className="text-sm font-bold text-gray-500">Advance Filter</span>
+                </button>
+                <button 
+                  onClick={onNavigateToProperties}
+                  className="flex-1 sm:flex-none bg-[#576856] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold shadow-lg shadow-[#576856]/20 hover:bg-[#4a5849] transition-all"
+                >
+                  Search
+                </button>
+              </div>
             </div>
           </div>
         </div>

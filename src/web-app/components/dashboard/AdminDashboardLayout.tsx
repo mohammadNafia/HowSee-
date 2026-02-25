@@ -33,8 +33,8 @@ export function AdminDashboardLayout({ children }: AdminDashboardLayoutProps) {
       `}>
         <div className="flex flex-col h-full p-6">
           <div className="px-4 py-8 flex items-center gap-4">
-            <div className="w-12 h-12 bg-[#f4f5f2] rounded-2xl flex items-center justify-center overflow-hidden border border-gray-100">
-              <img src={logoImage} alt="Howsee" className="w-full h-full object-contain p-2" />
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center overflow-hidden border border-gray-100 p-2">
+              <img src={logoImage} alt="Howsee" className="w-full h-full object-contain" />
             </div>
             <div>
               <span className="font-bold text-xl text-gray-900 block leading-tight">Howsee</span>
@@ -68,29 +68,32 @@ export function AdminDashboardLayout({ children }: AdminDashboardLayoutProps) {
             })}
           </nav>
 
-          <div className="mt-auto pt-6 border-t border-gray-100 space-y-3">
-            <div className="flex items-center gap-3 mb-6 px-4 py-3 bg-[#f4f5f2] rounded-[24px] border border-gray-100">
-              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-gray-100 shadow-sm">
-                <span className="text-[#576856] font-bold">A</span>
+          <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between gap-2">
+            <div className="flex items-center gap-3 px-3 py-2 bg-[#f4f5f2] rounded-2xl border border-gray-100 flex-1 min-w-0">
+              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center border border-gray-100 shadow-sm shrink-0">
+                <span className="text-[#576856] font-bold text-xs">A</span>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-bold text-sm text-gray-900 truncate">Platform Admin</p>
-                <p className="text-[10px] font-bold text-[#576856] uppercase tracking-tighter">Verified Official</p>
+                <p className="font-bold text-[13px] text-gray-900 truncate">Platform Admin</p>
+                <p className="text-[9px] font-bold text-[#576856] tracking-tight truncate lowercase opacity-60">admin@howsee.com</p>
               </div>
             </div>
             <button 
-              onClick={() => { window.location.href = '/'; }}
-              className="w-full flex items-center gap-3 px-6 py-4 rounded-[24px] text-white bg-[#576856] hover:bg-[#4a5849] transition-all font-semibold text-sm shadow-lg shadow-[#576856]/20"
-            >
-              <Globe className="w-5 h-5" />
-              <span>Go to User Website</span>
-            </button>
-            <button 
               onClick={() => { localStorage.removeItem('howsee_auth'); localStorage.removeItem('howsee_role'); window.location.href = '/signin'; }}
-              className="w-full flex items-center gap-3 px-6 py-4 rounded-[24px] text-red-500 hover:bg-red-50 transition-all font-semibold text-sm"
+              className="w-10 h-10 flex items-center justify-center rounded-xl text-red-500 hover:bg-red-50 transition-all border border-transparent hover:border-red-100 shrink-0 shadow-sm"
+              title="Sign Out"
             >
               <LogOut className="w-5 h-5" />
-              <span>Sign Out</span>
+            </button>
+          </div>
+          
+          <div className="pt-3">
+            <button 
+              onClick={() => { window.location.href = '/'; }}
+              className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-[20px] text-white bg-[#576856] hover:bg-[#4a5849] transition-all font-bold text-[12px] shadow-lg shadow-[#576856]/20 uppercase tracking-widest"
+            >
+              <Globe className="w-4 h-4" />
+              <span>User Website</span>
             </button>
           </div>
           </div>

@@ -43,8 +43,8 @@ export function SignInPage({ onSignIn, isAuthenticated, userRole }: SignInPagePr
           </div>
           <div className="relative h-full flex flex-col justify-between text-white">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center">
-                <img src={logoImage} alt="Howsee" className="w-full h-full object-contain p-2 brightness-0 invert" />
+              <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20 p-2">
+                <img src={logoImage} alt="Howsee" className="w-full h-full object-contain brightness-0 invert" />
               </div>
               <span className="font-bold text-2xl tracking-tight">Howsee</span>
             </div>

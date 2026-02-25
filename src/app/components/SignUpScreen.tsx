@@ -67,7 +67,7 @@ export function SignUpScreen({ onBack, onSignUp, onSignIn }: SignUpScreenProps) 
           {/* Role Selector */}
           <div className="mb-6">
             <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block px-1">Account Type</label>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {roles.map((role) => {
                 const Icon = role.icon;
                 const isActive = selectedRole === role.id;
@@ -75,19 +75,18 @@ export function SignUpScreen({ onBack, onSignUp, onSignIn }: SignUpScreenProps) 
                   <button
                     key={role.id}
                     onClick={() => setSelectedRole(role.id)}
-                    className={`p-4 rounded-2xl border-2 transition-all flex flex-col items-center gap-2 ${
+                    className={`p-6 rounded-2xl border-2 transition-all flex flex-col items-center justify-center gap-3 ${
                       isActive
                         ? 'border-[#576856] bg-[#576856]/5 text-[#576856]'
                         : 'border-gray-100 hover:border-[#576856]/30 text-gray-400'
                     }`}
                   >
-                    <Icon className="w-6 h-6" />
-                    <span className="font-bold text-xs uppercase tracking-widest">{role.label}</span>
+                    <Icon className="w-8 h-8" />
                   </button>
                 );
               })}
             </div>
-            <p className="text-xs text-gray-400 mt-2 text-center font-medium">
+            <p className="text-sm text-gray-500 mt-4 text-center font-bold">
               {roles.find(r => r.id === selectedRole)?.desc}
             </p>
           </div>
@@ -151,7 +150,7 @@ export function SignUpScreen({ onBack, onSignUp, onSignIn }: SignUpScreenProps) 
             onClick={() => onSignUp(selectedRole)}
             className="w-full bg-[#576856] text-white rounded-2xl py-5 text-lg font-bold shadow-xl shadow-[#576856]/10 hover:bg-[#4a5a49] transition-all mb-8"
           >
-            Create {roles.find(r => r.id === selectedRole)?.label} Account
+            Create Account
           </button>
 
           <div className="text-center font-bold">

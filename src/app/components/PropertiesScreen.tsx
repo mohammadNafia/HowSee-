@@ -78,10 +78,10 @@ export function PropertiesScreen({ onBack, onPropertyClick }: PropertiesScreenPr
             </div>
             <button 
               onClick={() => setIsFilterOpen(true)}
-              className="flex items-center gap-3 px-6 py-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-sm border border-gray-100 hover:bg-gray-50 transition-colors"
             >
-              <SlidersHorizontal className="w-5 h-5 text-gray-800" strokeWidth={2.5} />
-              <span className="font-bold text-gray-700">Advanced Filters</span>
+              <SlidersHorizontal className="w-4 h-4 text-gray-800" strokeWidth={2.5} />
+              <span className="font-bold text-sm text-gray-700">Filters</span>
             </button>
           </div>
 

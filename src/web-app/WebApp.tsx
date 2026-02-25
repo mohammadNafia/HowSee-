@@ -10,6 +10,7 @@ import { PropertyUploadWizard } from './pages/seller/PropertyUploadWizard';
 import { PropertyManagement } from './pages/seller/PropertyManagement';
 import { PricingPage } from './pages/seller/PricingPage';
 import { SubscriptionBilling } from './pages/seller/SubscriptionBilling';
+import { AddPaymentMethod } from './pages/seller/AddPaymentMethod';
 import { PrivacySettings } from './pages/seller/PrivacySettings';
 import { ContactPage } from './pages/seller/ContactPage';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
@@ -44,7 +45,7 @@ export function WebApp({
             <LandingPage isAuthenticated={isAuthenticated} userRole={userRole} />
           )
         } />
-        <Route path="/signin" element={
+        <Route path="signin" element={
           isAuthenticated ? (
             <Navigate to={userRole === 'admin' ? '/admin/dashboard' : '/seller/overview'} replace />
           ) : (
@@ -58,7 +59,7 @@ export function WebApp({
             />
           )
         } />
-        <Route path="/signup" element={
+        <Route path="signup" element={
           isAuthenticated ? (
             <Navigate to={userRole === 'admin' ? '/admin/dashboard' : '/seller/overview'} replace />
           ) : (
@@ -73,9 +74,18 @@ export function WebApp({
           )
         } />
 
+        {/* Full Page Add Card - Outside of Layout */}
+        <Route path="seller/billing/add-card" element={
+          isAuthenticated && userRole === 'seller' ? (
+            <AddPaymentMethod />
+          ) : (
+            <Navigate to="/signin" replace />
+          )
+        } />
+
       {/* Seller dashboard routes */}
       <Route
-        path="/seller/*"
+        path="seller/*"
         element={
           isAuthenticated && userRole === 'seller' ? (
             <SellerDashboardLayout>
@@ -124,6 +134,5 @@ export function WebApp({
     </div>
   );
 }
-
 
 export default WebApp;
