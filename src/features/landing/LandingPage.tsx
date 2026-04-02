@@ -109,17 +109,6 @@ export function LandingPage() {
                   className="w-full h-full border-none outline-none"
                   title="Matterport 3D Tour"
                 ></iframe>
-                <div className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-8 bg-white/80 backdrop-blur-xl p-4 sm:p-6 rounded-[24px] sm:rounded-[32px] border border-white/50 shadow-xl pointer-events-none">
-                  <div className="flex items-center gap-4 sm:gap-5">
-                    <div className="w-10 h-10 sm:w-14 sm:h-14 bg-[#576856] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg shadow-[#576856]/20">
-                      <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                    </div>
-                    <div>
-                      <p className="text-lg sm:text-2xl font-bold text-gray-900">+127%</p>
-                      <p className="text-[9px] sm:text-xs font-bold text-gray-500 uppercase tracking-widest">Growth in Engagement</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -135,6 +124,46 @@ export function LandingPage() {
               <p className="text-white/70 font-bold uppercase tracking-widest text-xs">{stat.label}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Inspirational Speeches Section */}
+      <section className="bg-white rounded-[48px] py-24 px-8 sm:px-24 border border-gray-100">
+        <div className="max-w-4xl mx-auto text-center space-y-16">
+          <div className="space-y-4">
+            <h2 className="text-3xl sm:text-5xl font-black text-gray-900 tracking-tight">Voices of Innovation</h2>
+            <p className="text-gray-500 font-medium">Why we believe in a 3D-first future for real estate.</p>
+          </div>
+          
+          <div className="grid gap-12">
+            <div className="relative p-10 bg-[#f4f5f2] rounded-[40px] border border-gray-100">
+              <div className="absolute -top-6 left-10 w-12 h-12 bg-[#576856] rounded-2xl flex items-center justify-center text-white text-4xl font-serif">"</div>
+              <p className="text-xl sm:text-2xl font-bold text-gray-800 leading-relaxed italic mb-6">
+                "The future of real estate isn't just about showing a house; it's about letting someone live in it before they even step through the door. 3D technology is the bridge between a listing and a dream."
+              </p>
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-10 h-10 bg-gray-200 rounded-full" />
+                <div className="text-left">
+                  <p className="font-bold text-gray-900">Ahmed Al-Basri</p>
+                  <p className="text-xs text-[#576856] font-bold uppercase tracking-widest">Visionary Architect</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative p-10 bg-white rounded-[40px] border border-gray-100 shadow-xl shadow-gray-200/20">
+              <div className="absolute -top-6 left-10 w-12 h-12 bg-[#576856] rounded-2xl flex items-center justify-center text-white text-4xl font-serif">"</div>
+              <p className="text-xl sm:text-2xl font-bold text-gray-800 leading-relaxed italic mb-6">
+                "We don't just sell spaces; we sell perspectives. HowSee gives our clients the clarity they need to make the most important decision of their lives with absolute confidence."
+              </p>
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-10 h-10 bg-gray-200 rounded-full" />
+                <div className="text-left">
+                  <p className="font-bold text-gray-900">Sara Mohammad</p>
+                  <p className="text-xs text-[#576856] font-bold uppercase tracking-widest">Real Estate Director</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
