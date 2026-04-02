@@ -14,7 +14,16 @@ export default defineConfig({
     alias: {
       // Alias @ to the src directory
       '@': path.resolve(__dirname, './src'),
-      'figma:asset': path.resolve(__dirname, './src/assets'),
+      'figma:asset': path.resolve(__dirname, './src/shared/assets'),
+    },
+  },
+
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
     },
   },
 
