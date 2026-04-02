@@ -1,13 +1,13 @@
-import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Eye, Shield, Zap, TrendingUp, Play } from 'lucide-react';
 import logoImage from '@/shared/assets/logo.png';
 
 
 export function LandingPage() {
-  const navigate = useNavigate();
+
+  const linkedinUrl = "https://www.linkedin.com/in/howsee-iq-58a516400?utm_source=share_via&utm_content=profile&utm_medium=member_android";
+  const email = "howsee.iq@gmail.com";
 
   const features = [
-
     {
       icon: Eye,
       title: 'Immersive 3D Tours',
@@ -50,13 +50,13 @@ export function LandingPage() {
         
         <div className="hidden md:flex items-center gap-10">
           <a href="#features" className="text-[15px] font-bold text-gray-500 hover:text-[#576856] transition-colors">Features</a>
-          <a href="#pricing" className="text-[15px] font-bold text-gray-500 hover:text-[#576856] transition-colors">Pricing</a>
-          <a href="#testimonials" className="text-[15px] font-bold text-gray-500 hover:text-[#576856] transition-colors">Testimonials</a>
+          <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-[15px] font-bold text-gray-500 hover:text-[#576856] transition-colors">LinkedIn</a>
+          <a href={`mailto:${email}`} className="text-[15px] font-bold text-gray-500 hover:text-[#576856] transition-colors">Contact Us</a>
         </div>
  
         <div className="flex items-center gap-1.5 sm:gap-4">
           <button
-            onClick={() => window.open('https://discover.matterport.com/space/gzbxoZ1DVDd', '_blank')}
+            onClick={() => window.open('https://my.matterport.com/show?m=Z5JyV83eBoj', '_blank')}
             className="px-3.5 py-2 sm:px-8 sm:py-3.5 bg-[#576856] text-white text-[12px] sm:text-[15px] font-bold rounded-xl sm:rounded-2xl hover:scale-105 transition-all shadow-lg shadow-[#576856]/20"
           >
             Explore Now
@@ -82,14 +82,14 @@ export function LandingPage() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-4">
                 <button
-                  onClick={() => navigate(isAuthenticated ? dashboardPath : '/signup')}
+                  onClick={() => window.open(linkedinUrl, '_blank')}
                   className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-[#576856] text-white rounded-[24px] hover:scale-105 transition-all flex items-center justify-center gap-3 font-bold shadow-xl shadow-[#576856]/30 text-[16px] sm:text-lg"
                 >
-                  {isAuthenticated ? 'Go to Dashboard' : 'Start Exploration'}
+                  Connect with Us
                   <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
                 <button 
-                  onClick={() => window.open('https://discover.matterport.com/space/gzbxoZ1DVDd', '_blank')}
+                  onClick={() => window.open('https://my.matterport.com/show?m=Z5JyV83eBoj', '_blank')}
                   className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-[#f4f5f2] text-gray-700 rounded-[24px] hover:bg-gray-100 transition-all flex items-center justify-center gap-3 font-bold border border-gray-100 text-[16px] sm:text-lg"
                 >
                   <Play className="w-5 h-5 sm:w-6 sm:h-6 fill-current" />
@@ -102,7 +102,7 @@ export function LandingPage() {
               <div className="absolute -inset-4 bg-[#576856]/5 rounded-[60px] blur-3xl group-hover:bg-[#576856]/10 transition-all duration-500" />
               <div className="relative bg-[#f4f5f2] rounded-[40px] sm:rounded-[56px] border-4 sm:border-8 border-white shadow-2xl overflow-hidden aspect-[4/3]">
                 <iframe 
-                  src="https://my.matterport.com/show/?m=gzbxoZ1DVDd&play=1" 
+                  src="https://my.matterport.com/show?play=0&playsInline=1&lang=en-US&m=Z5JyV83eBoj&ss=81&sr=-.19,-.74" 
                   frameBorder="0" 
                   allowFullScreen 
                   allow="xr-spatial-tracking"
@@ -159,8 +159,6 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* Features Grid and other static content remains */}
-      
       <footer className="bg-white rounded-[48px] border border-gray-100 p-12 lg:p-20 shadow-sm">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 mb-20">
@@ -174,6 +172,10 @@ export function LandingPage() {
               <p className="text-gray-500 font-medium leading-relaxed">
                 Transforming the heart of real estate through immersive technology and human-centric design.
               </p>
+              <div className="flex flex-col gap-2">
+                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-[#576856] font-bold hover:underline">LinkedIn Profile</a>
+                <a href={`mailto:${email}`} className="text-[#576856] font-bold hover:underline">{email}</a>
+              </div>
             </div>
             <div className="flex flex-col items-end justify-center">
                <p className="text-gray-400 font-bold text-sm">© 2026 Howsee. A New Perspective on Home.</p>
