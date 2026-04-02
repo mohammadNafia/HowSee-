@@ -1,8 +1,14 @@
-# Build
+# Build output
+dist/
 bin/
 obj/
 [Dd]ebug/
 [Rr]elease/
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+frontend/dist/
 
 # IDE
 .idea/
@@ -15,7 +21,3 @@ obj/
 .env
 .env.local
 appsettings.*.local.json
-
-# Frontend
-frontend/node_modules/
-frontend/dist/
